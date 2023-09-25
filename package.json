@@ -2,7 +2,9 @@
   "name": "@movie/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "dev":"nx run-many --parallel --target=serve --projects=movie-api,movie-app"
+  },
   "private": true,
   "dependencies": {
     "@swc/helpers": "~0.5.0",

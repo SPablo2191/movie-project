@@ -5,7 +5,7 @@ import NxWelcome from './nx-welcome';
 
 export function App() {
   return (
-    <div>
+    <div className='flex justify-content-start'>
       <NxWelcome title="movie-app" />
     </div>
   );

@@ -1,7 +1,9 @@
 import { json } from 'body-parser';
 import cors from "cors";
 import express from 'express';
-import 'dotenv/config';
+import dotenv from 'dotenv';
+
+dotenv.config();
 import movieRouter from './routes/movie-routes';
 const app = express();
 const port = process.env.PORT || 3333;

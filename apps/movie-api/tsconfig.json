@@ -12,5 +12,9 @@
   ],
   "compilerOptions": {
     "esModuleInterop": true
+  },
+  "paths": {
+    "@myproject/*": ["@movieapi/project/*"],
+    "@myproject/enums/*": ["enums/*"]
   }
 }

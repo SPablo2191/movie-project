@@ -1,9 +1,9 @@
-import { Toolbar, ToolbarProps } from 'primereact/toolbar';
+import { Menubar, MenubarProps } from 'primereact/menubar';
 
-export function UiNavbar(props: ToolbarProps) {
+export function UiNavbar(props: MenubarProps) {
   return (
-    <div className="card">
-      <Toolbar {...props} />
+    <div className="">
+      <Menubar {...props} />
     </div>
   );
 }

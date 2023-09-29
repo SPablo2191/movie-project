@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 import dotenv from 'dotenv';
 import { Endpoints } from "../../project/enums/endpoints.enum";
 import { operations } from "../../project/enums/operation.enum";
+import { Status } from "../../project/enums/status.enum";
 dotenv.config();
+
 const apiUrl: string = process.env.BACKEND_URL || 'http://localhost:3333';
 
 export const useModelList = <Model>(
@@ -12,13 +15,13 @@ export const useModelList = <Model>(
 
   const getData = async () => {
     try {
-      const response = await fetch(`${apiUrl}${process.env.VERSION}${endpoint}${operations.getAll}`);
+      const response = await axios.get(`${apiUrl}${process.env.VERSION}${endpoint}${operations.getAll}`);
 
-      if (!response.ok) {
+      if (response.status !== Status.SUCCESS) {
         throw new Error("Network response was not ok");
       }
 
-      const data: Model = await response.json();
+      const data: Model = response.data;
 
       setData(data);
     } catch (error) {
@@ -29,6 +32,7 @@ export const useModelList = <Model>(
 
   useEffect(() => {
     getData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return { data, setData, getData };
